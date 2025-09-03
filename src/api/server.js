@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import expenseRoute from './routes/expense.route';
 
 dotenv.config();
 
@@ -12,10 +13,8 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
-// Routes test
-app.get('/', (req, res) => {
-  res.send('API BudgetApp en marche 🚀');
-});
+// route test
+app.use("/", expenseRoute);
 
 // Lancer le serveur
 const PORT = process.env.PORT || 5000;
